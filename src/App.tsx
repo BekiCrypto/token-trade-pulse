@@ -7,6 +7,8 @@ import { Layout } from "./components/Layout";
 import Dashboard from "./pages/Dashboard";
 import Strategies from "./pages/Strategies";
 import TradeHistory from "./pages/TradeHistory";
+import ApiKeys from "./pages/ApiKeys";
+import Settings from "./pages/Settings";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -22,8 +24,8 @@ const App = () => (
             <Route path="/" element={<Dashboard />} />
             <Route path="/strategies" element={<Strategies />} />
             <Route path="/history" element={<TradeHistory />} />
-            <Route path="/api-keys" element={<div className="p-6 text-center">API Keys page coming soon...</div>} />
-            <Route path="/settings" element={<div className="p-6 text-center">Settings page coming soon...</div>} />
+            <Route path="/api-keys" element={<ApiKeys />} />
+            <Route path="/settings" element={<Settings />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </Layout>
