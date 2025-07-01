@@ -1,1 +1,40 @@
 project_id = "asjdjamxhbvfkyrawlzh"
+
+[api]
+enabled = true
+port = 54321
+schemas = ["public", "graphql_public"]
+extra_search_path = ["public", "extensions"]
+max_rows = 1000
+
+[db]
+port = 54322
+
+[realtime]
+enabled = true
+ip_version = "ipv4"
+
+[studio]
+enabled = true
+port = 54323
+api_url = "http://localhost"
+
+[storage]
+enabled = true
+file_size_limit = "50MiB"
+
+[auth]
+enabled = true
+site_url = "http://localhost:5173"
+additional_redirect_urls = ["https://asjdjamxhbvfkyrawlzh.supabase.co"]
+jwt_expiry = 3600
+enable_refresh_token_rotation = true
+
+[edge_functions]
+enabled = true
+
+[functions.crypto-payment]
+verify_jwt = true
+
+[functions.referral-management]
+verify_jwt = true

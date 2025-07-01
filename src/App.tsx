@@ -8,6 +8,7 @@ import Dashboard from "./pages/Dashboard";
 import Strategies from "./pages/Strategies";
 import TradeHistory from "./pages/TradeHistory";
 import ApiKeys from "./pages/ApiKeys";
+import Subscription from "./pages/Subscription";
 import Settings from "./pages/Settings";
 import NotFound from "./pages/NotFound";
 
@@ -25,6 +26,7 @@ const App = () => (
             <Route path="/strategies" element={<Strategies />} />
             <Route path="/history" element={<TradeHistory />} />
             <Route path="/api-keys" element={<ApiKeys />} />
+            <Route path="/subscription" element={<Subscription />} />
             <Route path="/settings" element={<Settings />} />
             <Route path="*" element={<NotFound />} />
           </Routes>

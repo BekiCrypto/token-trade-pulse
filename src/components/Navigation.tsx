@@ -6,6 +6,7 @@ import {
   History, 
   TrendingUp, 
   Key, 
+  Crown,
   Menu, 
   X,
   Zap
@@ -37,6 +38,12 @@ const navigationItems = [
     url: "/api-keys", 
     icon: Key,
     description: "Exchange Setup"
+  },
+  { 
+    title: "Subscription", 
+    url: "/subscription", 
+    icon: Crown,
+    description: "Plans & Referrals"
   },
   { 
     title: "Settings", 

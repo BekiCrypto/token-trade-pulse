@@ -6,6 +6,7 @@ import { Label } from "@/components/ui/label";
 import { Switch } from "@/components/ui/switch";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Slider } from "@/components/ui/slider";
+import { Badge } from "@/components/ui/badge";
 import { 
   Bell, 
   Shield, 
@@ -14,7 +15,9 @@ import {
   Mail,
   MessageSquare,
   DollarSign,
-  Clock
+  Clock,
+  Crown,
+  CreditCard
 } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 
@@ -43,6 +46,14 @@ export default function Settings() {
     // Contact
     email: "user@example.com",
     telegramUsername: ""
+  });
+
+  const [currentPlan] = useState({
+    name: "Pro",
+    price: 50,
+    status: "active",
+    nextBilling: "2024-08-15",
+    features: ["Advanced strategies", "2 exchange connections", "Priority support"]
   });
 
   const { toast } = useToast();
@@ -169,6 +180,47 @@ export default function Settings() {
               />
             </div>
           )}
+        </CardContent>
+      </Card>
+
+      {/* Current Subscription */}
+      <Card className="border-l-4 border-l-primary">
+        <CardHeader>
+          <CardTitle className="flex items-center gap-2">
+            <Crown className="w-5 h-5 text-primary" />
+            Current Subscription
+          </CardTitle>
+        </CardHeader>
+        <CardContent className="space-y-4">
+          <div className="flex justify-between items-start">
+            <div>
+              <div className="flex items-center gap-2 mb-1">
+                <h3 className="text-lg font-semibold">{currentPlan.name} Plan</h3>
+                <Badge variant="default" className="text-xs">
+                  {currentPlan.status}
+                </Badge>
+              </div>
+              <p className="text-2xl font-bold">${currentPlan.price}/month</p>
+              <p className="text-sm text-muted-foreground">
+                Next billing: {currentPlan.nextBilling}
+              </p>
+            </div>
+            <Button variant="outline" onClick={() => window.location.href = '/subscription'}>
+              <CreditCard className="w-4 h-4 mr-2" />
+              Manage Plan
+            </Button>
+          </div>
+          
+          <div>
+            <Label className="text-sm font-medium">Plan Features</Label>
+            <div className="flex flex-wrap gap-1 mt-1">
+              {currentPlan.features.map((feature, index) => (
+                <Badge key={index} variant="secondary" className="text-xs">
+                  {feature}
+                </Badge>
+              ))}
+            </div>
+          </div>
         </CardContent>
       </Card>
 
